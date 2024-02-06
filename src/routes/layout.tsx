@@ -7,8 +7,9 @@ import Footer from '~/components/starter/footer/footer';
 import styles from './styles.css?inline';
 
 export const useServerTimeLoader = routeLoader$(() => {
+  const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' } as Intl.DateTimeFormatOptions;
   return {
-    date: new Date().toISOString(),
+    date: new Date().toLocaleDateString('fr-FR', options),
   };
 });
 
